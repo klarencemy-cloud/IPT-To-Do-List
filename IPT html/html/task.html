@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" href="../css/task.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!--navigation bar-->
+<div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+
+    <!--todo list-->
+    <main class="todo_list">
+
+        <div class="task_list">
+            <p class="tasks">TASKS:</p>
+            
+            <div class="task-item">
+                <input type="checkbox">
+                <div class="task-line"></div>
+            </div>
+            <div class="task-item">
+                <input type="checkbox">
+                <div class="task-line"></div>
+            </div>
+            <div class="task-item">
+                <input type="checkbox">
+                <div class="task-line"></div>
+            </div>
+            <div class="task-item">
+                <input type="checkbox">
+                <div class="task-line"></div>
+            </div>
+        </div>
+<div class="buttons_for_tasks">
+        <div class="task-actions">
+            <form action="addtask.html" method="get" style="display: inline;">
+                <button type="submit" id="add-task">ADD TASK</button>
+            </form>
+            
+            <button id="remove-task">REMOVE TASK</button>
+           <a href="edit.html"><button id="edit-task">EDIT TASK</button></a>
+
+        </div>
+    </div>
+    </main>
+
+</body>
+</html>

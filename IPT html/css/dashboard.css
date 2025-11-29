@@ -1,0 +1,380 @@
+/*----------general------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url("background.png") center/cover fixed;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(4px);
+    display: flex;
+    color: white !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding: 30px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+/*----------side bar-----------*/
+.nav {
+    width: 260px;
+    position: sticky;
+    top: 30px;
+    height: calc(100vh - 60px);
+    background: 25px;
+    padding: 30px 20px;
+    border-radius: 25px 25px 25px 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 0 20px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.nav ul {
+    margin-top: 100px;
+    padding-left: 0;
+}
+
+.nav ul li {
+    list-style: none;
+    margin: 35px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nav ul li a {
+    color: white !important;;
+    text-decoration: none;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-right: 15px;
+    font-size: 24px;
+    border-left: 4px solid white;
+    padding-left: 10px;
+    opacity: 1;
+}
+
+.nav ul li a i {
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.nav ul li:hover a {
+    color: #ffffff;
+    margin-left: 0;
+    opacity: 0.8;
+}
+
+/*-----------main layout---------*/
+.main-layout {
+    flex: 1;
+    margin-left: 30px;
+    background: 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: 
+        "greet-section calendar-reminder"
+        "cards-container notes-section"
+        "cards-container music-section";
+    gap: 30px;
+    height: calc(100vh - 60px);
+    overflow-y:auto;
+}
+
+.greet-section {
+    grid-area: greet-section;
+}
+
+.task_cards_container {
+    grid-area: cards-container;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-content: start;
+    padding-top: 20px;
+}
+
+/*-----------task list box----------*/
+.task_list_box {
+    background:  rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.task-line {
+    flex-grow: 1;
+    height: 2px;
+    background: rgb(255, 255, 255, 0.3);
+    border-radius: 1px;
+}
+
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.task-actions button {
+    background: rgba(255, 255, 255, 0.1); 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+    display: flex; 
+    align-items: center;
+}
+
+.task_cards_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.task_card_link .card {
+
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 15px; 
+    padding: 20px;
+    height: 100%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task_card_link:hover .card {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.15); 
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: white !important; 
+}
+
+.progress_bar_container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden; 
+}
+
+.progress_bar_fill {
+    height: 100%;
+    background: #ffffff; 
+    border-radius: 5px;
+}
+
+/*---------calendar, notes, music----------*/
+.calendar_reminder {
+    grid-area: calendar-reminder;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.calendar-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h1 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.calendar_reminder .month {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.calendar_reminder .month ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    background: none;
+    margin-bottom: 10px;
+}
+
+.calendar_reminder .month ul li {
+    color: white !important;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.calendar_reminder .month .prev,
+.calendar_reminder .month .next {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.2s;
+    flex-grow: 0;
+}
+
+.calendar_reminder .month .prev:hover,
+.calendar_reminder .month .next:hover {
+    color: #ccc;
+}
+
+.calendar_reminder #month-year {
+    flex-grow: 3;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.calendar_reminder #month-year span {
+    font-size: 14px !important;
+    font-weight: 400;
+}
+
+.calendar_reminder .weekdays, 
+.calendar_reminder .days {
+    margin: 0;
+    padding: 0;
+    background: none;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 5px;
+}
+
+.calendar_reminder .weekdays li {
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+.calendar_reminder .days li {
+    color: white !important;
+    padding: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_reminder .days li:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.calendar_reminder .days li.active {
+    background: white !important ;
+    color: #111;
+    font-weight: 700;
+}
+
+.reminder {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.reminder i {
+    margin-right: 5px;
+    color: #ffd700;
+}
+
+.notes {
+    grid-area: notes-section;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    height: 100%;
+}
+
+.music {
+    grid-area: music-section;
+    background:  rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    height: 100%;
+}
+
+
+
+
+a {
+    color: white !important; 
+    text-decoration: none;
+}
+
+a:visited {
+    color: white !important; 
+}
+
+
+.task_list h2, 
+.task_list h3,
+.task__card_list h3 { 
+    color: white !important; 
+}
+
+.nav ul li a {
+    color: white !important;
+}

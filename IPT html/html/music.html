@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="../css/music.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+        <!--navigation bar-->
+<div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+
+    <!--music player lyrics-->
+<main class="main-content">
+    <header>
+        <h1>MUSIC</h1>
+    </header>
+
+    <div class="music-layout">
+        <section class="music-player-box">
+            <h2 style="margin-bottom: 15px;">Now Playing (via Spotify)</h2>
+
+            <iframe
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <!--music player album-->
+    <section class="custom-player-bar">
+        <div id="music-controls">
+            <div id="song-info-display">
+                <img src="jpg" alt="Album" id="album">
+                <div id="song_info">
+                <span class="song-title">Song Title - </span>
+                <span class="artist-name">Artist Name</span>
+            </div>
+        </div>
+<!--music player audio-->
+        <div id="audio-progress">
+            <span class="current_music_time">1:07</span>
+            <input type="range" min="0" max="100" value="50" disabled> 
+            <span class="music_time">-1:49</span>
+        </div>
+
+        <div id="button_controls_music">
+            <button class="prev" id="prev_back"> &lt;&lt; </button>
+
+            <button class="pause" id="play_pause"> || </button>
+
+            <button class="next" id="next_forward"> &gt;&gt; </button>
+        </div>
+        
+    </div>
+    </section>
+
+</main>
+</body>
+</html>

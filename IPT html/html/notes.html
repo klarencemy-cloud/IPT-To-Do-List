@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Notes</title>
+    <link rel="stylesheet" href="../css/notes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+     <!--navigation bar-->
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <header>
+            <h2>NOTES</h2>
+        </header>
+
+        <section class="note-input-area">
+            <textarea id="noteInput" placeholder="Write your note..."></textarea>
+        
+            <div class="input-actions">
+                <button onclick="addNote()" class="add-note-btn">
+                    <i class="fas fa-plus"></i> ADD NOTE
+                </button>
+                <button type="button" onclick="window.location.href='dashboard.html'" class="cancel-btn">
+                    <i class="fas fa-times"></i> CANCEL
+                </button>
+            </div>
+        </section>
+
+    <hr class="divider">
+
+    <h2> SAVED NOTES</h2>
+    <div class="note-container" id="noteList">
+        <div class="note">
+            <button class="delete-btn" onclick="this.parentElement.remove()"><i class="fas fa-trash-alt"></i></button>
+        </div>
+    </div>
+    </main>
+
+    <script>
+        function addNote() {
+            let noteText = document.getElementById("noteInput").value;
+
+            if (noteText.trim() === "") {
+                alert("Please write something!");
+                return;
+            }
+
+            let notesDiv = document.getElementById("notesList");
+
+            let note = document.createElement("div");
+            note.className = "note";
+
+            note.innerHTML = `
+                <button class="delete-btn" onclick="this.parentElement.remove()">X</button>
+                <p>${noteText}</p>
+            `;
+
+            notesDiv.appendChild(note);
+
+            document.getElementById("noteInput").value = "";
+        }
+    </script>
+
+</body>
+</html>

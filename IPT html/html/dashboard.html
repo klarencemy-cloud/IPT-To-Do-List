@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, mahbaby Dashboard Structure</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+
+    <!-- DASHBOARD Begin -->
+     <main class="main-layout">
+
+        <section class="greet-section">
+            <div class="greet">
+                <h1>Hello, Motion </h1>
+    
+            </div>
+        
+            <!-- CLICKABLE TASK LIST (GOES TO task.html) -->
+            <a href="task.html" class="task_list_box">
+
+                <p class="tasks">here are your tasks</p>
+
+                <div class="task-item"><input type="checkbox" disabled><div class="task-line"></div></div>
+                <div class="task-item"><input type="checkbox" disabled><div class="task-line"></div></div>
+                <div class="task-item"><input type="checkbox" disabled><div class="task-line"></div></div>
+                <div class="task-item"><input type="checkbox" disabled><div class="task-line"></div></div>
+    
+
+                <!-- task buttons -->
+            <div class="buttons_for_tasks">
+                <div class="task-actions">
+                    <button id="add-task"><i class="fas fa-plus"></i> ADD TASK</button>
+                    <button id="remove-task"><i class="fas fa-trash-alt"></i> REMOVE TASK</button>
+                    <button id="edit-task"><i class="fas fa-edit"></i> EDIT TASK</button>
+                </div>
+            </div>
+            </a>
+        </section>
+
+        <section class="task_cards_container">
+            <!-- task 1 -->
+            <a href="task.html" class="task__card_list">
+            <div class="card">
+                <h3>MATHEMATICS</h3>
+                <p class="date">November 25, 2025</p>
+                <p class="progress-label">Progress</p>
+                <div class ="progress_bar_container"><div class="progress_bar_fill" style="width: 70%;"></div></div>
+                <div class="card_details"><i class="far fa-clock"></i> 5 days left</div>
+            </div>
+            </a>
+
+            <!-- task 2 -->
+            <a href="task.html" class="task_list">
+            <div class="card">
+                <h3>MATHEMATICS</h3>
+                <p class="date">November 25, 2025</p>
+                <p class="progress-label">Progress</p>
+                <div class ="progress_bar_container"><div class="progress_bar_fill" style="width: 70%;"></div></div>
+                <div class="card_details"><i class="far fa-clock"></i> 5 days left</div>
+            </div>
+            </a>
+
+             <!-- task 3-->
+            <a href="task.html" class="task_list">
+            <div class="card">
+                <h3>MATHEMATICS</h3>
+                <p class="date">November 25, 2025</p>
+                <p class="progress-label">Progress</p>
+                <div class ="progress_bar_container"><div class="progress_bar_fill" style="width: 70%;"></div></div>
+                <div class="card_details"><i class="far fa-clock"></i> 5 days left</div>
+            </div>
+            </a>
+
+            <!-- task 4 -->
+            <a href="task.html" class="task_list">
+            <div class="card">
+                <h3>MATHEMATICS</h3>
+                <p class="date">November 25, 2025</p>
+                <p class="progress-label">Progress</p>
+                <div class ="progress_bar_container"><div class="progress_bar_fill" style="width: 70%;"></div></div>
+                <div class="card_details"><i class="far fa-clock"></i> 5 days left</div>
+            </div>
+            </a>
+        </section>
+
+        <!-- CALENDAR AND REMINDER  -->
+        <a href="reminder.html" class="task_list">
+        <section class="calendar_reminder">
+            <div class="calendar-header"> 
+                <h1>Calendar</h1>
+                <div class="reminder"><i class="fas fa-bell"></i> REMINDER</div>
+            </div> 
+            <div class="month">
+                 <ul>
+                    <li class="prev" onclick="prevMonth()">&#10094;</li>
+                    <li class="next" onclick="nextMonth()">&#10095;</li>
+                    <li id="month-year"></li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li><li>S</li>
+            </ul>
+            <ul class="days" id="days"></ul>
+        </section>
+        </a>
+
+        <!-- Notes  -->
+        <a href="notes.html" class="tasks_list">
+        <section class="notes">
+            <h2>Notes</h2>
+            <p>Here you can add your notes.</p>
+        </section>
+        </a>
+
+            <!-- Music Player  -->
+         <a href="music.html" class="tasks_list">
+        <section class="music">
+            <h2>Music</h2>
+            <div id="music">
+            <div id="song">
+                <img src="jpg" alt="Album" id="album">
+                <div id="song_info">
+                    <span class="song-title">Song Title - </span>
+                    <span class="artist-name">Artist Name</span>
+                </div>
+            </div>
+            <div id="audio">
+                <span class="current_music_time">1:07</span>
+                <input type="range" min="0" max="100" value="50" disabled>
+                <span class="music_time">-1:49</span>
+            </div>
+            <div id="button_controls_music">
+                <button class="prev" id="prev_back"> &lt;&lt; </button>
+                <button class="pause" id="play_pause"> || </button>
+                <button class="next" id="next_forward"> &gt;&gt; </button>
+            </div>
+            </div>
+        </section>
+        </a>
+
+
+
+     </main>
+     <script>
+    let date = new Date();
+
+    function renderCalendar() {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+
+        const monthYear = document.getElementById("month-year");
+        const daysContainer = document.getElementById("days");
+
+        const months = [
+            "January","February","March","April","May","June",
+            "July","August","September","October","November","December"
+        ];
+
+        monthYear.innerHTML = `${months[month]}<br><span style="font-size:18px">${year}</span>`;
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDate = new Date(year, month + 1, 0).getDate();
+
+        daysContainer.innerHTML = "";
+
+        let adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+        for (let i = 0; i < adjustedFirstDay; i++) {
+            daysContainer.innerHTML += `<li></li>`;
+        }
+
+        for (let day = 1; day <= lastDate; day++) {
+            let isToday =
+                day === new Date().getDate() &&
+                month === new Date().getMonth() &&
+                year === new Date().getFullYear()
+                    ? 'active'
+                    : '';
+
+            daysContainer.innerHTML += `<li class="${isToday}">${day}</li>`;
+        }
+    }
+
+    function nextMonth() {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+    }
+
+    function prevMonth() {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+    }
+
+    renderCalendar();
+</script>
+</body>
+</html>

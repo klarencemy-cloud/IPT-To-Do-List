@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="../css/addtask.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+          <!--navigation bar-->
+<div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+      <!--todo list edit task-->
+<main class="form-container">
+  <h2>ADD TASK</h2>
+
+  <form method="post" class="task-form">
+    <input type="text" name="task_name" placeholder="Task Name" required>
+    <br>
+    <input type="text" name="task_description" placeholder="Task Description" required>
+    <br>
+    <input type="date" name="due_date" placeholder="2025-12-01" required>
+    <br>
+
+    <div class="form-actions">
+      <button type="button" class="save-btn" onclick="window.location.href='dashboard.html'"><i class="fas fa-save"></i> ADD</button>
+      <button type="button" class="cancel-btn" onclick="window.location.href='task.html'"><i class="fas fa-times"></i> CANCEL</button>
+    </div>
+  </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reminder</title>
+
+    <link rel="stylesheet" href="../css/reminder.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+           <!--navigation bar-->
+<div class="nav">
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> DASHBOARD</a></li>
+            <li><a href="task.html"><i class="fas fa-list-check"></i> TASKS</a></li>
+            <li><a href="reminder.html"><i class="fas fa-calendar-alt"></i> REMINDER</a></li>
+            <li><a href="notes.html"><i class="fas fa-note-sticky"></i> NOTES</a></li>
+            <li><a href="music.html"><i class="fas fa-headphones"></i> MUSIC</a></li>
+        </ul>
+    </div>
+
+    <div class="main-layout-container">
+        
+        <div class="reminder-header-title">REMINDER</div>
+
+        <div class="content-row">
+            
+            <section class="calendar-section">
+                <div class="calendar-wrapper">
+                    <div class="month-year-container">
+                        <li class="prev" onclick="prevMonth()">&#10094;</li>
+                        <li class="next" onclick="nextMonth()">&#10095;</li>
+                        <li id="month-year" class="month-display"></li>
+                    </div>
+
+                    <ul class="weekdays">
+                        <li>S</li><li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li>
+                    </ul>
+
+                    <ul class="days" id="days"></ul>
+                </div>
+            </section>
+            
+            <div class="clock-side-box">
+                <div class="analog-clock-display">
+                    <i class="fas fa-clock"></i> 
+                </div>
+                
+                <div class="digital-time-box">
+                    <span class="digital-time">6:31</span>
+                    <span class="am-pm">am</span>
+                </div>
+            </div>
+
+        </div> </div> <script>
+        let date = new Date();
+
+        function renderCalendar() {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+
+            const monthYear = document.getElementById("month-year");
+            const daysContainer = document.getElementById("days");
+
+            const months = [
+                "JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
+                "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
+            ];
+
+        
+            monthYear.innerHTML = `${months[month]}<br><span style="font-size: 18px; font-weight: 300;">${year}</span>`;
+
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            daysContainer.innerHTML = "";
+
+       
+            let adjustedFirstDay = firstDay; 
+
+            for (let i = 0; i < adjustedFirstDay; i++) {
+                daysContainer.innerHTML += `<li></li>`;
+            }
+
+            for (let day = 1; day <= lastDate; day++) {
+                let isToday =
+                    day === new Date().getDate() &&
+                    month === new Date().getMonth() &&
+                    year === new Date().getFullYear()
+                        ? 'active'
+                        : '';
+
+                daysContainer.innerHTML += `<li class="${isToday}">${day}</li>`;
+            }
+        }
+
+        function nextMonth() {
+            date.setMonth(date.getMonth() + 1);
+            renderCalendar();
+        }
+
+        function prevMonth() {
+            date.setMonth(date.getMonth() - 1);
+            renderCalendar();
+        }
+
+        renderCalendar();
+    </script>
+</body>
+</html>
+
